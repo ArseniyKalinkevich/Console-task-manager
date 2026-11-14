@@ -1,88 +1,50 @@
 #include <iostream>
+#include <ostream>
 #include <string>
-#include <vector>
 
 using namespace std;
+const string MASTER_PASSWORD = "1234";
 
 int main() {
 
+  string enterdPassword;
+
   int menu;
-  string task;
-  vector<string> tasks;
 
-  while (true) { // меню
+  cout << "введите мастер_key: ";
+  cin >> enterdPassword;
 
-    cout << "1. просмотр задач" << endl;
-    cout << "2. добавить задачу" << endl;
-    cout << "3. удалить  задачу" << endl;
-    cout << "4. изменить задачу" << endl;
-    cout << "5. выход из программы" << endl;
+  if (enterdPassword != MASTER_PASSWORD) {
+    cout << "мастер_key введн не правильно " << endl;
+    return 1;
+  }
+
+  while (true) {
+
+    cout << "======= Менеджер задач ======" << endl;
+    cout << endl;
+
+    cout << "1. Показать все записи" << endl;
+    cout << "2. Добавить запись" << endl;
+    cout << "3. Найти запись" << endl;
+    cout << "4. Выход" << endl;
+
+    cout << "Выберите пункт: ";
     cin >> menu;
 
-    if (menu == 1) { // ввод команда 1
-      if (!tasks.empty()) {
-        cout << "твои задачи: " << endl;
-        for (int i = 0; i < tasks.size(); i++) {
-          cout << i + 1 << ". " << tasks[i] << endl;
-        }
-      }
+    if (menu == 1) {
 
-      else {
-        cout << "задач пока нет" << endl;
-      }
     }
 
     else if (menu == 2) {
-      string task;
-
-      cin.ignore();
-      cout << "введи задачу: ";
-
-      getline(cin, task);
-      tasks.push_back(task);
-
-      cout << "задача добавлена: " << task << endl;
 
     }
 
-    else if (menu == 3) {
-      if (!tasks.empty()) {
-        tasks.pop_back();
-        cout << "последняя задача удалена " << endl;
-      }
+    else if (menu = 3) {
 
-      else {
-        cout << "задач пока нет " << endl;
-      }
     }
 
     else if (menu == 4) {
-      if (!tasks.empty()) {
-        int number;
-
-        cout << "введите номер задачи: ";
-        cin >> number;
-        cin.ignore();
-
-        if (number >= 1 && number <= tasks.size()) {
-          cout << "введите изменение для новой задачи: " << endl;
-          getline(cin, task);
-
-          tasks[number - 1] = task;
-
-          cout << "задача изменена " << task << endl;
-        }
-
-        else {
-          cout << "задача не найдена" << endl;
-        }
-      }
-
-    }
-
-    else if (menu == 5) {
-      cout << "выход из программы" << endl;
-      break;
     }
   }
 
