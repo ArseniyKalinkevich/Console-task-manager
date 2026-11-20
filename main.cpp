@@ -129,6 +129,36 @@ int main() {
       }
     }
 
+    else if (menu == 5) {
+      string changeSite;
+      ;
+
+      cin.ignore();
+
+      cout << "введите запись для изменения: ";
+      getline(cin, changeSite);
+
+      if (passwords.empty()) {
+        cout << "записей нет" << endl;
+      }
+
+      else {
+
+        bool found = false;
+
+        for (int i = 0; i < passwords.size(); i++) {
+          if (passwords[i].site == changeSite) {
+            passwords.erase(passwords.begin() + i);
+            cout << "запись изменена" << endl;
+
+            found = true;
+
+            i--;
+          }
+        }
+      }
+    }
+
     else if (menu == 6) {
       cout << "выход из программы" << endl;
       break;
